@@ -6,11 +6,12 @@
 #include <stdint.h>
 
 #define DEFULT_SIZE 64 
-template<typename T,uint32_t arrize=DEFULT_SIZE>
+template<typename T,int arrize=DEFULT_SIZE>
 class CLFreeLockQueue
 {
     public:
-    CLFreeLockQueue();
+    CLFreeLockQueue(){    m_CurrentReadIndex=0;
+    m_CurrentWriteIndex=0;}
     bool PushMessage(T);
     T PopMessage();
     private:
@@ -20,3 +21,10 @@ class CLFreeLockQueue
     inline int CountToIndex(int index);
     //std::atomic<int>m_MaxReadCount;
 };
+/*
+template<typename T,int arr>
+class test
+{
+    T a;
+};
+*/

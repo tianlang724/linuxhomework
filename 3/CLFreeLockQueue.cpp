@@ -1,17 +1,19 @@
 #include "CLFreeLockQueue.h"
-template<typename T,uint32_t arrize>
-inline int
-CLFreeLockQueue<T,arrize>::CountToIndex(int index)
-{
-    return index%arrize;
-}
-template<typename T,uint32_t arrize>
+/*
+template<typename T,int arrize>
 CLFreeLockQueue<T,arrize>::CLFreeLockQueue()
 {
     m_CurrentReadIndex=0;
     m_CurrentWriteIndex=0;
 }
-template<typename T,uint32_t arrize>
+*/
+template<typename T,int arrize>
+inline int
+CLFreeLockQueue<T,arrize>::CountToIndex(int index)
+{
+    return index%arrize;
+}
+template<typename T,int arrize>
 bool
 CLFreeLockQueue<T,arrize>::PushMessage(T element)
 {
@@ -33,7 +35,7 @@ CLFreeLockQueue<T,arrize>::PushMessage(T element)
     m_FreeLockQueue[CurrentWriteIndex] = element;
 }
 
-template<typename T,uint32_t arrize>
+template<typename T,int arrize>
 T
 CLFreeLockQueue<T,arrize>::PopMessage()
 {
