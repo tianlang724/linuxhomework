@@ -10,8 +10,7 @@ template<typename T,int arrize=DEFULT_SIZE>
 class CLFreeLockQueue
 {
     public:
-    CLFreeLockQueue(){    m_CurrentReadIndex=0;
-    m_CurrentWriteIndex=0;}
+    CLFreeLockQueue(){    m_CurrentReadIndex=0;m_CurrentWriteIndex=0;}
     bool PushMessage(T);
     T PopMessage();
     private:
