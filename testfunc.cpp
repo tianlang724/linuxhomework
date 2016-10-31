@@ -1,6 +1,7 @@
 #include <iostream>       // std::cout
 #include <vector>         // std::vector
 #include <unistd.h>
+#include <thread>
 template <typename T,int size=0>
 class Foo
 {
@@ -16,6 +17,7 @@ int main()
 {
     Foo<int> foo;
     int a=9;
-    func<int>(&foo,a);
+    func<int>(foo,a);
+    std::thread t2(func<int>,foo,a);
     return 0;
 }
