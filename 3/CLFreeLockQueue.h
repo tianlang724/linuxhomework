@@ -1,3 +1,5 @@
+#ifndef CLFREELOCKQUEUE_H
+#define CLFREELOCKQUEUE_H
 #include <iostream>       // std::cout
 #include <atomic>         // std::atomic
 #include <thread>         // std::thread
@@ -21,6 +23,12 @@ class CLFreeLockQueue
     //std::atomic<int>m_MaxReadCount;
 };
 template<typename T,int arrize>
+inline int
+CLFreeLockQueue<T,arrize>::CountToIndex(int index)
+{
+    return index%arrize;
+}
+template<typename T,int arrize>
 bool
 CLFreeLockQueue<T,arrize>::PushMessage(T element)
 {
@@ -37,12 +45,6 @@ CLFreeLockQueue<T,arrize>::PushMessage(T element)
     }while(1);
     m_FreeLockQueue[CurrentWriteIndex] = element;
     return true;
-}
-template<typename T,int arrize>
-inline int
-CLFreeLockQueue<T,arrize>::CountToIndex(int index)
-{
-    return index%arrize;
 }
 
 template<typename T,int arrize>
@@ -62,3 +64,4 @@ CLFreeLockQueue<T,arrize>::PopMessage()
     }while(1);
     return m_FreeLockQueue[CurrentReadIndex];
 } 
+#endif

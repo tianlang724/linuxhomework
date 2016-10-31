@@ -18,6 +18,6 @@ int main()
     Foo<int> foo;
     int a=9;
     func<int>(foo,a);
-    std::thread t2(func<int>,foo,a);
+    std::thread t2(func<int>,foo,a);//thread 不支持模板函数
     return 0;
 }
