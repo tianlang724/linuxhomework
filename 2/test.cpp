@@ -44,12 +44,15 @@ int main()
     cout<<"offset"<<fh.GetFileOffset()<<"read after write 2 "<<buf<<endl;
 
     fh.SetFileOffset(90,SEEK_SET);
-    fh.WriteFile(buf);
+    fh.WriteFile(ss);
     fh.CloseFile();
 
     //测试o_append
     fh.OpenFile("makefile.txt",O_RDWR|O_APPEND);
-    fh.ReadFile(buf,10);
+    CLStatus s1=fh.ReadFile(buf,10);
+    if(!s1.IsSuccess())
+    cout<<"cant read append"<<endl;
+    else
     cout<<"offset"<<fh.GetFileOffset()<<"read append: "<<buf<<endl;
     fh.CloseFile();
 

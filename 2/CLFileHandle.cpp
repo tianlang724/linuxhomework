@@ -17,7 +17,7 @@ CLFileHandle::CLFileHandle(const char* filename,int  flag)
     m_pFileBuffer=new char[BUFFER_SIZE_FILE];
     OpenFile(filename,flag);
 	InitFilePara();
-	if(flag&&O_APPEND)
+	if(flag&O_APPEND)
 	m_offset=lseek(m_fd,0,SEEK_END);
 }
 CLFileHandle::~CLFileHandle()
@@ -34,7 +34,7 @@ CLStatus CLFileHandle::OpenFile(const char* filename,int flag)
     if(m_fd==-1)
     return CLStatus(-1,errno);
     InitFilePara();
-	if(flag&&O_APPEND)
+	if(flag&O_APPEND)
 	m_offset=lseek(m_fd,0,SEEK_END);
     return CLStatus(1,0);
 }

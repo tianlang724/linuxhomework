@@ -34,7 +34,6 @@ class CLFileHandle
     char *m_pFileBuffer;
     int m_lastOperation;
 	unsigned int m_nUsedBytesForBuffer;
-    void ClearFileBuffer();
     CLStatus Flush();
     void InitFilePara();
 };
