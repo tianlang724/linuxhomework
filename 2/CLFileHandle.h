@@ -25,10 +25,12 @@ class CLFileHandle
     CLStatus OpenFile(const char* filename,int flag);
     CLStatus WriteFile(const char* pstrMsg);
     CLStatus ReadFile(char* pstrMsg,int len);
-    CLStatus LseekFile(off_t offset,int whence);
+    CLStatus SetFileOffset(off_t offset,int whence);
+    off_t GetFileOffset();
     CLStatus CloseFile();
     private:
     int m_fd;
+    off_t m_offset;
     int m_openMode;
     char *m_pFileBuffer;
     int m_lastOperation;
@@ -36,5 +38,6 @@ class CLFileHandle
     bool m_bFlagForProcessExit;
     void ClearFileBuffer();
     CLStatus Flush();
+    void InitFilePara();
 };
 #endif

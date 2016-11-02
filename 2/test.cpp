@@ -14,20 +14,31 @@ int main()
     }
     char buf[100];
     memset(buf,0,sizeof(buf));
-    CLStatus s1=fh.ReadFile(buf,10);
-    if(!s1.IsSuccess())
-    {
-        cout<<"open error"<<endl;
-        return -1;
-    }
-    cout<<"1"<<buf<<endl;
+    //测试连续读以及读缓存不够的情况'
     fh.ReadFile(buf,10);
-    cout<<"2"<<buf<<endl;
-    fh.LseekFile(10,SEEK_SET);
+    cout<<"offset"<<fh.GetFileOffset()<<"read 10: "<<buf<<endl;
     fh.ReadFile(buf,10);
-    cout<<"3"<<buf<<endl;
-    fh.LseekFile(10,SEEK_SET);
-    char ss[6]="00000";
+    cout<<"offset"<<fh.GetFileOffset()<<"read 10 "<<buf<<endl;
+    fh.ReadFile(buf,10);
+    cout<<"offset"<<fh.GetFileOffset()<<"read 10 "<<buf<<endl;
+    //测试改变位置读的内容是否正确
+    fh.SetFileOffset(10,SEEK_SET);
+    fh.ReadFile(buf,10);
+    cout<<"offset"<<fh.GetFileOffset()<<"lseek 10 read: "<<buf<<endl;
+    //测试读完之后写是否正确
+    char ss[11]="0000000000";
+    cout<<"offset"<<fh.GetFileOffset()<<"write"<<endl;
     fh.WriteFile(ss);
-
+    //测试连续写
+    cout<<"offset"<<fh.GetFileOffset()<<"write"<<endl;
+    fh.WriteFile(ss);
+    cout<<"offset"<<fh.GetFileOffset()<<"write"<<endl;
+    fh.WriteFile(ss);
+    //测试写完之后读
+    fh.ReadFile(buf,10);
+    cout<<"offset"<<fh.GetFileOffset()<<"read after write 1: "<<buf<<endl;
+    cout<<"offset"<<fh.GetFileOffset()<<"write"<<endl;
+    fh.WriteFile(ss);
+    fh.ReadFile(buf,10);
+    cout<<"offset"<<fh.GetFileOffset()<<"read after write 2 "<<buf<<endl;
 }
