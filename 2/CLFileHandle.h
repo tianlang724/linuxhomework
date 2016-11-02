@@ -31,7 +31,6 @@ class CLFileHandle
     private:
     int m_fd;
     off_t m_offset;
-    int m_openMode;
     char *m_pFileBuffer;
     int m_lastOperation;
 	unsigned int m_nUsedBytesForBuffer;

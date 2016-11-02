@@ -41,4 +41,15 @@ int main()
     fh.WriteFile(ss);
     fh.ReadFile(buf,10);
     cout<<"offset"<<fh.GetFileOffset()<<"read after write 2 "<<buf<<endl;
+    fh.CloseFile();
+    //测试o_append
+    fh.OpenFile("makefile.txt",O_RDWR|O_APPEND);
+    fh.ReadFile(buf,10);
+    cout<<"offset"<<fh.GetFileOffset()<<"read append: "<<buf<<endl;
+    fh.CloseFile();
+    fh.OpenFile("makefile.txt",O_RDWR|O_APPEND);
+    cout<<"offset"<<fh.GetFileOffset()<<"wtite append:"<<endl;
+    fh.WriteFile(ss);
+    cout<<"offset"<<fh.GetFileOffset()<<"wtite append:"<<endl;
+    fh.WriteFile(ss);
 }

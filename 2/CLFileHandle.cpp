@@ -31,7 +31,7 @@ CLStatus CLFileHandle::OpenFile(const char* filename,int flag)
     m_fd=open(filename,flag);
     if(m_fd==-1)
     return CLStatus(-1,errno);
-    m_openMode=flag;
+    InitFilePara();
     return CLStatus(1,0);
 }
 CLStatus CLFileHandle::WriteFile(const char* pstrMsg)
