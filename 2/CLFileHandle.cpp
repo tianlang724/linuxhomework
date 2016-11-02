@@ -17,6 +17,8 @@ CLFileHandle::CLFileHandle(const char* filename,int  flag)
     m_pFileBuffer=new char[BUFFER_SIZE_FILE];
     OpenFile(filename,flag);
 	InitFilePara();
+	if(flag&&O_APPEND)
+	m_offset=lseek(m_fd,0,SEEK_END);
 }
 CLFileHandle::~CLFileHandle()
 {
@@ -32,6 +34,8 @@ CLStatus CLFileHandle::OpenFile(const char* filename,int flag)
     if(m_fd==-1)
     return CLStatus(-1,errno);
     InitFilePara();
+	if(flag&&O_APPEND)
+	m_offset=lseek(m_fd,0,SEEK_END);
     return CLStatus(1,0);
 }
 CLStatus CLFileHandle::WriteFile(const char* pstrMsg)
@@ -47,10 +51,9 @@ CLStatus CLFileHandle::WriteFile(const char* pstrMsg)
 		m_nUsedBytesForBuffer=0;
 		lseek(m_fd,m_offset,SEEK_SET);
 	}	
-	m_lastOperation=WRITE;
 	unsigned int nleftroom = BUFFER_SIZE_FILE - m_nUsedBytesForBuffer;
 	unsigned int total_len = strlen(pstrMsg);
-	if((total_len > BUFFER_SIZE_FILE) || (m_bFlagForProcessExit))
+	if(total_len > BUFFER_SIZE_FILE)
 	{
 		if(m_fd == -1)
 			return CLStatus(-1, 0);
@@ -58,6 +61,7 @@ CLStatus CLFileHandle::WriteFile(const char* pstrMsg)
 		if(r == -1)
 			return CLStatus(-1, errno);
 		m_offset=lseek(m_fd,0,SEEK_CUR);
+		m_lastOperation=WRITE;
 		return CLStatus(0, 0);
 	}
 	if(total_len > nleftroom)
@@ -68,6 +72,8 @@ CLStatus CLFileHandle::WriteFile(const char* pstrMsg)
 	}
 	memcpy(m_pFileBuffer + m_nUsedBytesForBuffer, pstrMsg, total_len);
 	m_nUsedBytesForBuffer += total_len;
+	m_offset+=total_len;
+	m_lastOperation=WRITE;
 	return CLStatus(0, 0);
 }
 CLStatus CLFileHandle::Flush()
