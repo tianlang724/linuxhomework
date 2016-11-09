@@ -18,15 +18,12 @@ CLStatus CLThread::Run(void* pContext)
     int ret=pthread_create(&m_ThreadID,NULL,StartFunctionOfThread,this);
     if(ret<0)
         return CLStatus(-1,0);
-    else
+    m_bCreatedThread=true;
+    if(!m_bWaitForDeath)
     {
-         m_bCreatedThread=true;
-    	if(!m_bWaitForDeath)
-           	{
-	        	ret = pthread_detach(m_ThreadID);
-	        	if(ret!= 0)
-                    return CLStatus(-1,0);
-            }
+	        ret = pthread_detach(m_ThreadID);
+	        if(ret!= 0)
+              return CLStatus(-1,0);
 	}
     return CLStatus(1,0);
 

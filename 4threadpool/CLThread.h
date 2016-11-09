@@ -7,6 +7,7 @@ class CLThread
     ~CLThread();
     CLStatus Run(void *pContext);
     static void *StartFunctionOfThread(void *pContext);
+    CLStatus WaitForDeath();
 protected:
     virtual CLStatus RunThreadFunction( void ) = 0;
     void *m_pContext;
