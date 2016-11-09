@@ -1,34 +1,17 @@
 #ifndef CLTHREAD_H
 #define CLTHREAD_H
-
-#include <pthread.h>
-#include "CLExecutive.h"
 #include "CLStatus.h"
-#include "CLEvent.h"
-
-class CLThread : public CLExecutive
+class CLThread
 {
-public:
-	explicit CLThread(CLExecutiveFunctionProvider *pExecutiveFunctionProvider);
-	CLThread(CLExecutiveFunctionProvider *pExecutiveFunctionProvider, bool bWaitForDeath);
-	virtual ~CLThread();
-
-	virtual CLStatus Run(void *pContext = 0);
-
-	virtual CLStatus WaitForDeath();
-
-private:
-	static void* StartFunctionOfThread(void *pContext);
-
-private:
-	void *m_pContext;
-	pthread_t m_ThreadID; 
-
-	bool m_bThreadCreated;
-	bool m_bWaitForDeath;
-
-	CLEvent m_EventForWaitingForNewThread;
-	CLEvent m_EventForWaitingForOldThread;
+    CLThread(bool bWaitForDeath);
+    ~CLThread();
+    CLStatus Run(void *pContext);
+    static void *StartFunctionOfThread(void *pContext);
+protected:
+    virtual CLStatus RunThreadFunction( void ) = 0;
+    void *m_pContext;
+    pthread_t m_ThreadID;
+    bool m_bWaitForDeath;
+    bool m_bCreatedThread;
 };
-
 #endif

@@ -5,7 +5,7 @@ class CLThreadPoolManager
 {
     CLThreadPoolManager(int threadNum=10);
     ~CLThreadPoolManager();
-    void AddMessage(CLMessage *msg);
+    void AddTask()
     void TerminalAll();
     private:
     //CLThreadPool * m_pThreadPool;
