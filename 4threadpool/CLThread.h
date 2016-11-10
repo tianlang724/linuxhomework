@@ -1,8 +1,10 @@
 #ifndef CLTHREAD_H
 #define CLTHREAD_H
 #include "CLStatus.h"
+#include <pthread.h>
 class CLThread
 {
+public:
     CLThread(bool bWaitForDeath);
     ~CLThread();
     CLStatus Run(void *pContext);

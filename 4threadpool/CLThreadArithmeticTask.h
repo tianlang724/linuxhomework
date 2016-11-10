@@ -10,20 +10,21 @@ struct STResult
     int result;
     uint64_t taskID;
     bool state;
-}
+};
 class CLThreadArithmeticTask: public CLThreadTask
 {
+public:
     CLThreadArithmeticTask(int fd,int op1,int op2,int type);
     ~CLThreadArithmeticTask();
     CLStatus Process();
     CLStatus PostProcess();
 
-    private:
+private:
     int m_nOp1;
     int m_nOp2;
     int m_nOpType;
     int m_nWriteBackFd;
-    bool m_IsSucess;
-    int m_nReasult;
+    bool m_IsSuccess;
+    int m_nResult;
 };
 #endif

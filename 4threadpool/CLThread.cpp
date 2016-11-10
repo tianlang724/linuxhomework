@@ -29,7 +29,7 @@ CLStatus CLThread::Run(void* pContext)
 
        
 }
-static void* CLThread::StartFunctionOfThread(void *pContext);
+void* CLThread::StartFunctionOfThread(void *pContext)
 {
     CLThread *pThread=(CLThread*)pContext;
     pThread->RunThreadFunction();
@@ -41,10 +41,9 @@ CLStatus CLThread::WaitForDeath()
         return CLStatus(-1,0);
     if(!m_bWaitForDeath)
         return CLStatus(-1,0);
-    int ret=pthread_join(&m_ThreadID,0);
+    int ret=pthread_join(m_ThreadID,0);
     if(ret!=0)
         return CLStatus(-1,0);
     delete this;
     return CLStatus(1,0);
-
 }

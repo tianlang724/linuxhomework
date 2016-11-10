@@ -1,11 +1,12 @@
 #include<sys/types.h>
-#include<sys/stat.h>
+#include<sys/stat.h> 
+#include <fcntl.h>
 #include <errno.h>
 #include "CLChannel.h"
 #define FILE_MODE (S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)
 
 using namespace std;
-CLChannel::CLChannel(const char* channleName):m_sChannelName(channelName)
+CLChannel::CLChannel(const char* channelName):m_sChannelName(channelName)
 {
     m_nReadFd=-1;
     m_nWritFd=-1;
@@ -23,7 +24,7 @@ CLStatus CLChannel::InitChannel()
     m_bIsInitial=true;
     return CLStatus(1,0);
 }
-int GetReadFd()
+int CLChannel::GetReadFd()
 {
     if(!m_bIsInitial)
         return -1;
@@ -33,7 +34,7 @@ int GetReadFd()
     }
     return m_nReadFd;
 }
-int GetWriteFd()
+int CLChannel::GetWriteFd()
 {
     if(!m_bIsInitial)
         return -1;

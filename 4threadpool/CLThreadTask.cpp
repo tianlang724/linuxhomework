@@ -25,7 +25,7 @@ CLStatus CLThreadTask::SetTaskID(uint64_t id)
     m_nTaskID=id;
     return CLStatus(1,0);
 }
-uint64_t CLThreadTask::GetTaskID()
+uint64_t CLThreadTask::GetTaskID() const
 {
     return m_nTaskID;
 }

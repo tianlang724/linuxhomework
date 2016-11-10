@@ -1,7 +1,10 @@
 #include "CLThreadWork.h"
 #include <errno.h>
+#include <stdio.h>
+#include <unistd.h>
+
 using namespace std;
-CLThreadWork::CLThreadWork(bool bWaitForDeath )::CLThread(bWaitForDeath)
+CLThreadWork::CLThreadWork(bool bWaitForDeath ):CLThread(bWaitForDeath)
 {
     m_pChannel=NULL;
     m_pThreadTask=NULL;
@@ -15,9 +18,9 @@ CLStatus CLThreadWork::Initial(int channelNum)
 {
     char pathName[20];
     sprintf(pathName, "%d.fifo", channelNum);
-    m_pChannel = new FIFOChannel(pathName);  
-    CLStatus s=m_pChannel->Initial();
-    if(!s.IsSuccess)
+    m_pChannel = new CLChannel(pathName);  
+    CLStatus s=m_pChannel->InitChannel();
+    if(!s.IsSuccess())
         return CLStatus(-1,0);
 
     return CLStatus(1,0);
@@ -35,7 +38,7 @@ CLStatus CLThreadWork::RunThreadFunction()
     {
         m_pThreadTask->PreProcess();
         m_pThreadTask->Process();
-        m_pThreadTask->postProcess();
+        m_pThreadTask->PostProcess();
         delete m_pThreadTask;
     }
     return CLStatus(1,0);

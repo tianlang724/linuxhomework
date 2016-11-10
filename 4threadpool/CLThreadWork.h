@@ -4,10 +4,9 @@
 #include "CLThread.h"
 #include "CLChannel.h"
 #include "CLThreadTask.h"
-class CLChannel;
-class CLThreadTask;
 class CLThreadWork:public CLThread
 {
+public:
     CLThreadWork( bool bWaitForDeath);
     ~CLThreadWork();
     CLStatus RunThreadFunction( void );
