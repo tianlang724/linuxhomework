@@ -2,7 +2,6 @@
 #include <errno.h>
 #include <stdio.h>
 #include <unistd.h>
-
 using namespace std;
 CLThreadWork::CLThreadWork(bool bWaitForDeath ):CLThread(bWaitForDeath)
 {
@@ -34,13 +33,11 @@ int CLThreadWork::GetChannelWriteFd()
 CLStatus CLThreadWork::RunThreadFunction()
 {
     int readfd=m_pChannel->GetReadFd();
-    while(read(readfd,&m_pThreadTask,sizeof(m_pThreadTask)>0))
+    while(read(readfd,&m_pThreadTask,sizeof(m_pThreadTask))>0)
     {
         m_pThreadTask->PreProcess();
         m_pThreadTask->Process();
         m_pThreadTask->PostProcess();
-        delete m_pThreadTask;
     }
     return CLStatus(1,0);
-
 }

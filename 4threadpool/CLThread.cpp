@@ -1,4 +1,5 @@
 #include "CLThread.h"
+#include <iostream>
 using namespace std;
 CLThread::CLThread(bool bWaitForDeath)
 {

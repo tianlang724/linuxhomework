@@ -10,10 +10,10 @@ CLThreadPool::CLThreadPool(int threadnum)
  }
 CLStatus CLThreadPool::Initial()
 {
-    CLThreadWork *p;
+  
     for(int i=0;i<m_nThreadTotalNum;i++)
     {
-        *p=new CLThreadWork(false);
+        CLThreadWork *p=new CLThreadWork(false);
         CLStatus s=p->Initial(i);
         if(!s.IsSuccess())
         {

@@ -8,21 +8,20 @@
 using namespace std;
 int main()
 {
-    CLThreadPoolManager *pPoolManager=new CLThreadPoolManager("ctrl",5);
+    struct timeval begin,end;
+    CLThreadPoolManager *pPoolManager=new CLThreadPoolManager("ctrl.fifo",10);
     CLStatus s=pPoolManager->Initial();
     if(!s.IsSuccess())
         return 0;
-
     int nctrlwritefd=pPoolManager->GetCtrlThreadWriteFd();
-    struct timeval begin,end;
-    for(int i=0;i<1000;i++)
+    gettimeofday(&begin,NULL);
+    for(int i=0;i<2000;i++)
     {
         CLThreadTask *pTask=new CLThreadArithmeticTask(nctrlwritefd,i,i,ADD);
         pTask->SetTaskID(i);
         pPoolManager->AddTask(pTask);
     }
-    pPoolManager->ReceiveTaskReasult(1000);
+    pPoolManager->ReceiveTaskReasult(2000);
     gettimeofday(&end,NULL);
-    cout << "time spend: "<< ( end.tv_sec - begin.tv_sec ) * 1000000 + end.tv_usec - begin.tv_usec << " us" <<endl;
-
+    cout << "10 thread time spend: "<< ( end.tv_sec - begin.tv_sec ) * 1000000 + end.tv_usec - begin.tv_usec << " us" <<endl;
 }

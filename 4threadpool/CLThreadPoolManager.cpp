@@ -22,8 +22,9 @@ CLStatus CLThreadPoolManager::Initial()
         return CLStatus(-1,0);
     m_WorkThreadWriteFd=m_pThreadPool->GetWorkThreadWriteFd(m_nThreadNum);
     m_nCurThread=0;
+    return CLStatus(1,0);
 }
-CLStatus CLThreadPoolManager::AddTask(CLThreadTask * task)
+CLStatus CLThreadPoolManager::AddTask(CLThreadTask *task)
 {
     if(write(m_WorkThreadWriteFd[m_nCurThread],&task,sizeof(task))<0);
         return CLStatus(-1,0);
