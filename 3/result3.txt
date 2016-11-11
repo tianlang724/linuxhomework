@@ -1,0 +1,501 @@
+spawning 10 threads that count to 1 million...
+ push 0
+ push 1
+ push 2
+ push 3
+ push 4
+ push 5
+ push 6
+ push 7
+ push 8
+ push 9
+ push 10
+ push 11
+ push 12
+ push 13
+ push 14
+ push 15
+ push 16
+ push 17
+ push 18
+ push 19
+ push 20
+ push 21
+ push 22
+ push 23
+ push 24
+ push 0
+ push 1
+ push 2
+ push 3
+ pop 0
+ pop 1
+ pop 2
+ push  pop 3
+ pop 4
+ pop 5
+ pop 6
+ pop 7
+ pop 8
+ pop 9
+ pop 10
+ pop 11
+ pop 12
+ pop 13
+ pop 14
+ pop 15
+ pop 16
+ pop 17
+ pop 18
+ pop 19
+ pop 20
+ pop 21
+ pop 22
+ pop 23
+ pop 24
+4
+ push 5
+ push 6
+ push 7
+ push 8
+ push 9
+ push 10
+ push 11
+ push 12
+ push 13
+ push 14
+ push 15
+ pop 1
+ pop 2
+ pop 3
+ pop 4
+ pop 5
+ pop 6
+ pop 7
+ pop 8
+ pop 9
+ pop 10
+ pop 11
+ pop 12
+ pop 13
+ pop 14
+ pop 15
+ pop 16
+ pop 0
+ push 16
+ pop 17
+ push 17
+ push 18
+ push 19
+ push 20
+ push 21
+ push 22
+ push 23
+ push 24
+ pop  pop 21
+ pop 22
+ pop 20
+ push 0 pop 
+0 push 0
+ pop  push 1
+ push  push 2
+ push 3
+ push 4
+ push 5
+ push 6
+ push 7
+ push 8
+ push 9
+ push 10
+ push 11 pop 
+ pop 0 push 
+ pop  push 0
+ pop  pop 191
+
+0 pop 
+10
+ push  push 01
+23 push 1
+0
+ pop  push  pop 3
+12 pop 4
+18 pop 5
+
+ pop 6 pop 7
+ pop 9
+
+ pop  push 0 push 
+
+
+
+ pop  pop 0
+0
+ pop  push 112
+10 push 3
+ pop 1
+2
+ pop 1
+
+ pop 0
+ pop 1
+ pop 1
+ pop 2
+ pop 3
+ pop 4
+ pop 3
+ pop 2
+ pop 0
+
+ pop 24
+ push 1
+ push  pop 22
+ pop 2
+ push 0
+ push  pop 11
+ push 3
+ pop  push 44
+ push 1
+ pop  push 22
+
+ push 3
+ pop 3
+ push 4
+ push 5
+ push 6
+ push 7
+ push 8
+ push 9
+ push 10
+ push 11
+ push 12
+ push 13
+ push 14
+ push 15
+ push 16
+ push 17
+ push 18
+ push 19
+ push 20
+ push 21
+ push 22
+ push 23
+ push 24
+ push 0
+ push 1
+ push 2
+ push 3
+ push 4
+ push 5
+ push 6
+ push 7
+ push 8
+ push 9
+ push 4
+
+ pop 12
+ pop 5
+ push  pop 6
+ pop 
+8
+
+
+ pop 8
+
+ push 2
+ push 3
+ pop 11
+
+ pop 12
+ pop  pop 13
+ push 10
+ push  push 11
+2
+ push 12 pop 15
+ pop  pop 1617
+
+ push  pop 12
+ pop 20
+ pop 7
+ pop 21
+ pop 23
+ pop 24
+ pop 1
+ pop 2
+ pop 3
+ pop 4
+ pop 5
+ pop 6
+ pop 7
+ pop 8
+ pop 9
+ pop 5
+ pop 2
+ pop 3
+ pop 3
+ pop 4
+ pop 5
+ pop 10
+ pop 11
+ pop 12
+ pop 3
+ push 4
+ push 5
+ push 6
+ push 7
+ push 8
+ push 9
+ push 10
+ push 11
+ push 12
+ push 13
+ push 14
+ push 15
+ push 16
+ push 17
+ push 18
+ push 19
+ push 20
+ push 21
+ push 22
+ push 23
+ push 24
+5
+ push  pop 6
+ push 7
+ push 8
+ push 9
+ push 10
+ push 11
+ push 12
+ push 13
+19
+ pop  push 13
+ push 13
+ push 14 push 
+3
+ pop 18
+ pop  push 6
+ pop  pop 7
+ pop 8
+ pop 9
+ pop 10
+ pop 11
+ pop 12
+ pop 13
+ pop 14
+ pop 15
+ pop 16
+ pop 17
+ pop 18
+ pop 19
+ pop 20
+ pop 21
+ pop 22
+ pop 23
+ pop 24
+ pop 6
+10
+ pop 7
+ pop 8
+ push  pop 9
+ pop  pop 10
+ pop 11
+ pop 12
+ pop 13
+ pop 14
+ pop 14
+ pop 4
+14
+ pop 15
+ pop  push  pop 1515
+ push 16
+ push 17
+ push 18
+ push 19
+ push 20
+ push 21
+ push 22
+ push 23
+ push 24
+ push 15
+ push 16
+ push 17
+
+ push 18 push 459
+13 push 
+ pop 22
+ push 6
+
+3 pop 16
+
+14
+ pop 18
+ push 15
+4 push 16
+ push 17
+ push 18
+ push 19
+ push 20
+ push 21
+ push 22
+ push 23
+ push 24
+ push 7
+ push 8
+ push 9
+ pop 
+ push 19
+ pop  push 1720
+
+ push 21 pop 
+20
+14 pop 
+21
+ push 
+ pop 22
+ pop 24
+ push 4
+ pop 17
+ push 5
+
+10 pop 
+ push 6
+23
+
+ pop 13
+ pop 6
+ pop 14
+ pop 7
+ pop 19
+ pop 4
+ pop 15
+ pop 16
+ pop 17
+ pop 18
+ pop 19
+ pop 20
+ pop 21
+ pop 22
+ pop 23
+ pop 24
+ push 1911
+ push 12 pop 
+16
+ pop 8
+ pop 9
+ pop 10
+
+ push  push 13
+ push 14
+ push 15
+ push 16
+ push 17
+ push 18
+ push 19
+ push 20
+ push 21
+ push 22
+ push 23
+ push 24
+ pop 18
+ pop 21
+ pop 5
+ pop 6
+ pop 7
+ pop 12
+ pop 13
+ pop 14
+ pop 15
+ pop 16
+ pop 17
+ pop 18
+ push 22
+ push 23
+ push 24
+ pop 5
+ pop 19 pop 
+ pop 20
+ pop 21
+ pop 22
+ pop 23
+ pop 24
+ pop 22
+ pop 23
+ pop 24
+5
+5
+ pop 6 push 
+11
+ push 7
+ push  pop 88
+
+ pop  push 99
+
+ pop 10 push 
+10
+ pop 11 push 
+11
+ pop 12 push 
+12
+ pop  push 13
+13
+ push  pop 14
+6
+14
+ push 7
+ pop 7
+ push  pop 20
+ pop 8
+ push 15
+ push 16
+ pop 16
+ push 17
+ push 18
+ push 19
+ push 20
+ push 21
+ push 22
+ push 23
+ push 24
+ pop  pop 15
+ pop 19
+ pop 20
+ pop 21
+ pop 22
+ pop 23
+ pop 24
+8
+ pop  push 9
+9
+ push 10
+ push 11
+17
+ pop  push 10
+ pop 11
+ pop 12
+12
+ pop 13
+ push 13
+ pop 14 push 
+14
+ pop 15 push 
+15
+ pop 16 push 
+16
+ pop 17 push 
+17
+ pop 18
+ push 18
+ push  pop 1919
+
+ push 20
+ push 21
+ push 22
+ push 23
+ push 24
+ pop 20
+ pop 21
+ pop 22
+ pop 18
+ pop 23
+ pop 24
